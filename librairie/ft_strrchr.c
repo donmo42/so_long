@@ -1,6 +1,6 @@
 
 
-#include  "../src/so_long.h"
+#include "../src/so_long.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -15,10 +15,10 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-/* 
+/*
 #include <stdio.h>
 
-int main(void)
+int	main(void)
 {
 	printf("%s", ft_strrchr("bonjour", 'j'));
 }*/

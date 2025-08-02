@@ -10,7 +10,7 @@ void	rightmvt(t_data *data)
 	y = data->eposition.y;
 	if (data->map[y][x + 1] == 'P')
 	{
-		write(2, "perdu!", 7);
+		write(2, "Perdu 😢 vous avez touché l'ennemi.!", 40);
 		fkclose(data);
 	}
 	if (data->map[y][x + 1] != '1' && data->map[y][x + 1] != '\0'
@@ -32,7 +32,7 @@ void	leftmvt(t_data *data)
 	y = data->eposition.y;
 	if (data->map[y][x - 1] == 'P')
 	{
-		write(2, "perdu! ", 7);
+		write(2, "Perdu 😢 vous avez touché l'ennemi.!", 40);
 		fkclose(data);
 	}
 	if (x - 1 >= 0 && data->map[y][x - 1] != '1' && data->map[y][x - 1] != 'C')
@@ -53,7 +53,7 @@ void	upmvt(t_data *data)
 	y = data->eposition.y;
 	if (data->map[y - 1][x] == 'P')
 	{
-		write(2, "perdu!", 7);
+		write(2, "Perdu 😢 vous avez touché l'ennemi.!", 40);
 		fkclose(data);
 	}
 	if (y - 1 >= 0 && data->map[y - 1][x] != '1' && data->map[y - 1][x] != 'C')
@@ -74,7 +74,7 @@ void	downmvt(t_data *data)
 	y = data->eposition.y;
 	if (data->map[y + 1][x] == 'P')
 	{
-		write(2, "perdu!", 7);
+		write(2, "Perdu 😢 vous avez touché l'ennemi.!", 40);
 		fkclose(data);
 	}
 	if (data->map[y + 1] && data->map[y + 1][x] != '1' && data->map[y

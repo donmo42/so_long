@@ -1,17 +1,17 @@
 
-#include  "../src/so_long.h"
+
+#include "../src/so_long.h"
 
 char	*freestat(char *staticbuffer, char *buffer)
 {
 	char	*temp;
 
 	if (!staticbuffer)
-		return (ft_strdup(buffer)); // ou gérer NULL de manière adaptée
+		return (ft_strdup(buffer));
 	temp = ft_strjoin(staticbuffer, buffer);
 	free(staticbuffer);
 	return (temp);
 }
-
 
 char	*readfile(int fd, char *staticbuffer)
 {
@@ -58,7 +58,7 @@ char	*definedline(char *staticbuffer)
 	while (staticbuffer[i] != '\n' && staticbuffer[i])
 	{
 		line[i] = staticbuffer[i];
-		i++ ;
+		i++;
 	}
 	if (slashexiste)
 		line[i++] = '\n';
@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (free(staticbuffer), NULL);
 	staticbuffer = readfile(fd, staticbuffer);
 	if (!staticbuffer)
 		return (NULL);
@@ -110,15 +110,15 @@ char	*get_next_line(int fd)
 }
 /*
  int main() {
-    int fd = open("read_error.txt", O_RDONLY);
+	int fd = open("read_error.txt", O_RDONLY);
 
 		char *line;
-while ((line = get_next_line(fd)) != NULL)
+while	((line = get_next_line(fd)) != NULL)
 {
-    printf("%s", line);
-    free(line);
+	printf("%s", line);
+	free(line);
 }
 
-    close(fd); 
-    return 0;
+	close(fd);
+	return (0);
  } */

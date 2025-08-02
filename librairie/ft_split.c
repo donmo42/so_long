@@ -1,5 +1,6 @@
 
-#include  "../src/so_long.h"
+
+#include "../src/so_long.h"
 
 size_t	nbr_word(const char *s, char c)
 {
@@ -15,13 +16,13 @@ size_t	nbr_word(const char *s, char c)
 		if (s[i] != c && is_word == 0)
 		{
 			is_word = 1;
-			nbrword ++;
+			nbrword++;
 		}
 		else if (s[i] == c)
 		{
 			is_word = 0;
 		}
-		i++ ;
+		i++;
 	}
 	return (nbrword);
 }
@@ -42,7 +43,7 @@ size_t	alloc_bloc(const char *s, char c, size_t nbrword, char **tabword)
 		while (s[j] && s[j] != c)
 		{
 			k++;
-			j ++;
+			j++;
 		}
 		if (k > 0)
 		{
@@ -50,7 +51,7 @@ size_t	alloc_bloc(const char *s, char c, size_t nbrword, char **tabword)
 			if (!tabword[i])
 				return (0);
 		}
-		i ++;
+		i++;
 	}
 	return (1);
 }
@@ -76,7 +77,7 @@ void	write_bloc(const char *s, char c, size_t nbrword, char **tabword)
 		}
 		tabword[i][k] = '\0';
 		k = 0;
-		i ++;
+		i++;
 	}
 }
 

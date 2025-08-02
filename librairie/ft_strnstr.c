@@ -1,6 +1,6 @@
 
 
-#include  "../src/so_long.h"
+#include "../src/so_long.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		while (big[i + j] == little[k] && i + j < len && little[k] != '\0')
 		{
 			if (k == little_len - 1)
-				return ((char *) big + i);
+				return ((char *)big + i);
 			k++;
 			j++;
 		}

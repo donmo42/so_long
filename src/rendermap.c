@@ -1,4 +1,5 @@
 
+
 #include "so_long.h"
 
 void	init_images(t_data *data)
@@ -20,6 +21,7 @@ void	init_images(t_data *data)
 			"./ressources/xpm/perso_texture.xpm", &width, &height);
 	data->img.player1 = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./ressources/xpm/mario_player1.xpm", &width, &height);
+	checkxpm(data);
 }
 
 void	rendermap(t_data *data)
@@ -76,8 +78,8 @@ void	displayimg(t_data *data, int y, int x)
 
 void	render_data(t_data *data)
 {
-	int	i;
-	int	j;
+	int		i;
+	size_t	j;
 
 	i = 0;
 	data->player_img = data->img.player;
@@ -91,5 +93,26 @@ void	render_data(t_data *data)
 			j++;
 		}
 		i++;
+	}
+}
+
+void	checkxpm(t_data *data)
+{
+	int	i;
+
+	i = 1;
+	if (!data->img.wall || !data->img.player || !data->img.player1
+		|| !data->img.floor || !data->img.exit || !data->img.collectible
+		|| !data->img.enemy)
+		i = 0;
+	if (!i)
+	{
+		destroyeur(data);
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+		freemap(data);
+		ft_printf("Error\n❌ XPM Error.\n");
+		exit(0);
 	}
 }

@@ -1,5 +1,6 @@
 
-#include  "../src/so_long.h"
+
+#include "../src/so_long.h"
 
 char	*ft_strdup(const char *src)
 {

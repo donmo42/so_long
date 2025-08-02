@@ -1,4 +1,5 @@
 
+
 #include "so_long.h"
 
 int	fkclose(t_data *data)
@@ -19,22 +20,22 @@ int	key_hook(int keycode, t_data *data)
 	else if (keycode == 97)
 	{
 		leftmv(data);
-		data->cnt.mvt++;
+		ft_printf("Mouvments : %d \n", data->cnt.mvt++);
 	}
 	else if (keycode == 100)
 	{
 		rightmv(data);
-		data->cnt.mvt++;
+		ft_printf("Mouvments : %d \n", data->cnt.mvt++);
 	}
 	else if (keycode == 119)
 	{
 		upmv(data);
-		data->cnt.mvt++;
+		ft_printf("Mouvments : %d \n", data->cnt.mvt++);
 	}
 	else if (keycode == 115)
 	{
 		downmv(data);
-		data->cnt.mvt++;
+		ft_printf("Mouvments : %d \n", data->cnt.mvt++);
 	}
 	return (0);
 }
@@ -42,13 +43,16 @@ int	key_hook(int keycode, t_data *data)
 int	enemykey_hook(int keycode, t_data *data)
 {
 	key_hook(keycode, data);
-	if (keycode == 65362)
-		upmvt(data);
-	else if (keycode == 65361)
-		leftmvt(data);
-	else if (keycode == 65363)
-		rightmvt(data);
-	else if (keycode == 65364)
-		downmvt(data);
+	if (init_enemy(data))
+	{
+		if (keycode == 65362)
+			upmvt(data);
+		else if (keycode == 65361)
+			leftmvt(data);
+		else if (keycode == 65363)
+			rightmvt(data);
+		else if (keycode == 65364)
+			downmvt(data);
+	}
 	return (0);
 }
